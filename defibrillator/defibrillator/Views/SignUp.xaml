@@ -4,17 +4,18 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="defibrillator.Views.SignUp">
+             x:Class="defibrillator.Views.SignUp"
+             BackgroundColor="LightGray"
+             NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <StackLayout  VerticalOptions="Center" Padding="50">
-            <Image Source="octologo.png"></Image>
-            <Label Text="Become a new user" TextColor="#6A2C90" FontSize="14" FontFamily="{StaticResource Font}"></Label>
-            <Label TextColor="Red" x:Name="error" FontSize="14" FontFamily="{StaticResource Font}"></Label>
-            <Entry Placeholder="E-mail" x:Name="mail"  FontSize="14" FontFamily="{StaticResource Font}" TextColor="Black"></Entry>
-            <Entry Placeholder="Username" x:Name="Username"  FontSize="14" FontFamily="{StaticResource Font}" TextColor="Black"></Entry>
-            <Entry Placeholder="Password" x:Name="Password1" IsPassword="True"  FontSize="14" FontFamily="{StaticResource Font}" TextColor="Black"></Entry>
-            <Entry Placeholder="Pasword Again" x:Name="Password2"  FontSize="14" IsPassword="True" FontFamily="{StaticResource Font}" TextColor="Black"></Entry>
-            <Button x:Name="Register" Text="Register" BackgroundColor="#6A2C90" TextColor="White" FontSize="14" FontFamily="{StaticResource Font}" Clicked="Register_OnClicked"></Button>
+            <Image Source="image.png" Scale="1.5" HorizontalOptions="Center"></Image>
+            <Label Text="Become a new user" TextColor="Black" FontSize="14" ></Label>
+            <Label TextColor="Red" x:Name="error" FontSize="14" ></Label>
+            <Entry Placeholder="E-mail" x:Name="mail"  FontSize="14"  TextColor="Black"></Entry>
+            <Entry Placeholder="Password" x:Name="Password1" IsPassword="True"  FontSize="14"  TextColor="Black"></Entry>
+            <Entry Placeholder="Confirm Pasword" x:Name="Password2"  FontSize="14" IsPassword="True"  TextColor="Black"></Entry>
+            <Button x:Name="Register" Text="Register" BackgroundColor="DodgerBlue" TextColor="White" FontSize="14"  Clicked="Register_OnClicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
