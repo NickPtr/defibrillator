@@ -113,7 +113,7 @@
     <AndroidResource Include="Resources\drawable\image.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\oktrans.png" />
+    <AndroidResource Include="Resources\drawable\defibrillator.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

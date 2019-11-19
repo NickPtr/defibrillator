@@ -8,14 +8,17 @@
              BackgroundColor="LightGray"
              NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
+
+        <ScrollView>
         <StackLayout  VerticalOptions="Center" Padding="50">
+            <Image Source="defibrillator.png" Scale="0.8" HorizontalOptions="CenterAndExpand" ></Image>
             <Image Source="image.png" Scale="1.5" HorizontalOptions="Center"></Image>
-            <Label Text="Become a new user" TextColor="Black" FontSize="14" ></Label>
             <Label TextColor="Red" x:Name="error" FontSize="14" ></Label>
             <Entry Placeholder="E-mail" x:Name="mail"  FontSize="14"  TextColor="Black"></Entry>
             <Entry Placeholder="Password" x:Name="Password1" IsPassword="True"  FontSize="14"  TextColor="Black"></Entry>
             <Entry Placeholder="Confirm Pasword" x:Name="Password2"  FontSize="14" IsPassword="True"  TextColor="Black"></Entry>
             <Button x:Name="Register" Text="Register" BackgroundColor="DodgerBlue" TextColor="White" FontSize="14"  Clicked="Register_OnClicked"></Button>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

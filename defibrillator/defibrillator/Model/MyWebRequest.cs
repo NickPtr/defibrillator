@@ -12,35 +12,34 @@ namespace defibrillator.Model
     class MyWebRequest
     {
 
-
-
-       
-
-
-        /* private const string URL = "";
-         private HttpClient client = new HttpClient();*/
-
-        public async Task OnAdd(User user)
+        public string result;
+        public async Task OnAdd(User user,string what)
          {
-             //var post = new User {};
-             //var content = JsonConvert.SerializeObject(user);
 
              var json = JsonConvert.SerializeObject(user);
              var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-             var url = "http://samosdefibrillator.azurewebsites.net/api/user";
+             var url = "http://samosdefibrillator.azurewebsites.net/api/user/"+what;
              var client = new HttpClient();
 
              var response = await client.PostAsync(url, data);
 
-             string result = response.Content.ReadAsStringAsync().Result;
+             var result = response.EnsureSuccessStatusCode().StatusCode;
              Console.WriteLine(result);
+            Set_Confirmation(result.ToString());
 
-            // await client.PostAsync(URL, new StringContent(content));
-            //var response = client.PostAsJsonAsync("http://www.samosdefibrillator.net/api/user",content);
 
-            //Console.WriteLine(response);
+        }
 
+
+        public void Set_Confirmation(string result)
+        {
+            this.result = result;
+        }
+
+        public string Get_Confirmation()
+        {
+            return result;
         }
 
     }
