@@ -7,22 +7,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace defibrillator
+namespace defibrillator.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LogIn : ContentPage
+    public partial class SignUp : ContentPage
     {
-        public LogIn()
+        public SignUp()
         {
             InitializeComponent();
         }
 
-        private void Login_Clicked(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Create_OnClicked(object sender, EventArgs e)
+        private void Register_OnClicked(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }

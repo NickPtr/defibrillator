@@ -9,11 +9,10 @@
     <ContentPage.Content >
         <StackLayout HorizontalOptions="Center" VerticalOptions="End" Padding="50" >
         <Image Source="logo.png" Scale="1.5" HorizontalOptions="Center" ></Image>
-        <Entry x:Name="Username" Placeholder="Username" FontSize="14"  FontFamily="{StaticResource Font}" BackgroundColor="LightSteelBlue"></Entry>
-        <Entry x:Name="Password" Placeholder="Password" FontSize="14"  FontFamily="{StaticResource Font}" IsPassword="True" BackgroundColor="LightSteelBlue"></Entry>
-        <Button x:Name="Login" Text="Login" TextColor="White" FontSize="14" FontFamily="{StaticResource Font}" BackgroundColor="#6A2C91" Clicked="Login_Clicked"></Button>
-          
-            <Button x:Name="Create" Text="Create an account" FontSize="14" FontFamily="{StaticResource Font}"  TextColor="#6A2C91" BackgroundColor="Transparent" Clicked="Create_OnClicked"></Button>
+        <Entry x:Name="Username" Placeholder="Username" FontSize="14"  BackgroundColor="LightSteelBlue"></Entry>
+        <Entry x:Name="Password" Placeholder="Password" FontSize="14"   IsPassword="True" BackgroundColor="LightSteelBlue"></Entry>
+        <Button x:Name="Login" Text="Login" TextColor="White" FontSize="14" BackgroundColor="#6A2C91" Clicked="Login_Clicked"></Button>
+            <Button x:Name="Create" Text="Create an account" FontSize="14"  TextColor="#6A2C91" BackgroundColor="Transparent" Clicked="Create_OnClicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
