@@ -33,6 +33,13 @@ namespace defibrillator
                 MyWebRequest request = new MyWebRequest();
 
                 await request.OnAdd(user, "login");
+
+                if (request.Get_Confirmation().Contains("OK"))
+                {
+                    this.Navigation.PushAsync(new Camera(), true);
+
+                }
+
             }
             catch (Exception exception)
             {
