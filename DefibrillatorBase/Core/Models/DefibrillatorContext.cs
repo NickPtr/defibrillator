@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Core.Models
 {
-    public class UserContext : DbContext
+    public class DefibrillatorContext : DbContext
     {
-        public UserContext() : base("DataConnection")
+        public DefibrillatorContext () : base("DataConnection")
         {
 
         }
-
-        public DbSet<User> UserTable { get; set; }
+       
+        public DbSet<Defibrillator> DefibrillatorTable { get; set; }
     }
 }

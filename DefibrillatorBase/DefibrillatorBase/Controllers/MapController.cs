@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Core.Models;
+using Mashine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,11 +11,13 @@ namespace DefibrillatorBase.Controllers
 {
     public class MapController : ApiController
     {
-        //Get api/Map
-        public void Get()
-        {
-           
+        MapService db = new MapService();
 
+
+        //Get api/Map/GetAllMapData
+        public List<Defibrillator> GetAllMapData()
+        {
+           return db.GetAll();
         }
     }
 }
