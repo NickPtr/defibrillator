@@ -36,7 +36,7 @@ namespace defibrillator
 
                 if (request.Get_Confirmation().Contains("OK"))
                 {
-                    this.Navigation.PushAsync(new Camera(), true);
+                    this.Navigation.PushAsync(new TabedPage(), true);
 
                 }
 
