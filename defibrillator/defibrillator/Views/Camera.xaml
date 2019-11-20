@@ -5,18 +5,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="defibrillator.Views.Camera"
-             Title="Add New">
+             Title="Add New"
+             BackgroundColor="LightGray">
     <ContentPage.Content>
-        <StackLayout>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+        <ScrollView>
+        <StackLayout Padding="50" VerticalOptions="CenterAndExpand">
+            
 
-                <Image x:Name="PhotoImage" />
-                <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1" />
-            </Grid>
+                
+
+                <Image x:Name="PhotoImage" Scale="0.5" />
+
+                <Entry Placeholder="Όνομα" x:Name="name" ></Entry>
+                <Entry Placeholder="Περιγραφή" x:Name="description"></Entry>
+            
+            <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1" BackgroundColor="DodgerBlue" TextColor="White"/>
+            <Button x:Name="save" Text="Save" Clicked="Save_OnClicked" BackgroundColor="DodgerBlue" TextColor="White"/>
+           
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
