@@ -19,5 +19,11 @@ namespace DefibrillatorBase.Controllers
         {
            return db.GetAll();
         }
+
+        //POST api/Map/AddNewDefibrillator
+        public void AddNewDefibrillator(Defibrillator def)
+        {
+            db.AddNew(def);
+        }
     }
 }

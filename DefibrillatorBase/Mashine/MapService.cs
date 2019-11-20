@@ -16,5 +16,11 @@ namespace Mashine
         {
             return db.DefibrillatorTable.ToList<Defibrillator>();
         }
+
+        public void AddNew(Defibrillator def)
+        {
+            db.DefibrillatorTable.Add(def);
+            db.SaveChanges();
+        }
     }
 }

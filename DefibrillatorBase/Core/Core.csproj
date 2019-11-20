@@ -52,15 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201911191659032_InitialCreate.cs" />
-    <Compile Include="Migrations\201911191659032_InitialCreate.Designer.cs">
-      <DependentUpon>201911191659032_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911201046450_Add-Migration.cs" />
-    <Compile Include="Migrations\201911201046450_Add-Migration.Designer.cs">
-      <DependentUpon>201911201046450_Add-Migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Defibrillator.cs" />
     <Compile Include="Models\DefibrillatorContext.cs" />
     <Compile Include="Models\User.cs" />
@@ -81,14 +72,6 @@
     <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.7\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.7\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.7\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911191659032_InitialCreate.resx">
-      <DependentUpon>201911191659032_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911201046450_Add-Migration.resx">
-      <DependentUpon>201911201046450_Add-Migration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
