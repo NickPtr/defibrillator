@@ -9,7 +9,7 @@ namespace Core.Models
 {
     public class DefibrillatorContext : DbContext
     {
-        public DefibrillatorContext () : base("DataConnection")
+        public DefibrillatorContext () : base("DefaultConnection")
         {
 
         }

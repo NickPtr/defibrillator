@@ -9,7 +9,7 @@ namespace Core.Models
 {
     public class UserContext : DbContext
     {
-        public UserContext() : base("DataConnection")
+        public UserContext() : base("DefaultConnection")
         {
 
         }
