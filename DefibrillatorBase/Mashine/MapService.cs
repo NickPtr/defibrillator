@@ -22,5 +22,14 @@ namespace Mashine
             db.DefibrillatorTable.Add(def);
             db.SaveChanges();
         }
+
+        public bool Update(Defibrillator defibrillator)
+        {
+            Defibrillator def = db.DefibrillatorTable.Where(d => d.Posx == defibrillator.Posx && d.Posy == defibrillator.Posy).First();
+            def.Name = defibrillator.Name;
+            def.Description = defibrillator.Description;
+            db.SaveChanges();
+            return true;
+        }
     }
 }

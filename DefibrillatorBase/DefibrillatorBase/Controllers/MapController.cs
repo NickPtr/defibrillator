@@ -25,5 +25,20 @@ namespace DefibrillatorBase.Controllers
         {
             db.AddNew(def);
         }
+
+        //GET api/Map/GetAllPoints
+
+        public List<Defibrillator> GetAllPoints()
+        {
+           return db.GetAll();
+        }
+
+        //POST api/Map/UpdateData
+        public HttpResponseMessage UpdateData(Defibrillator defibrillator)
+        {
+           if( db.Update(defibrillator))
+            return new HttpResponseMessage(HttpStatusCode.OK);
+            return new HttpResponseMessage(HttpStatusCode.NotModified);
+        }
     }
 }
