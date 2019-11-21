@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="defibrillator.Views.ReportDef"
+             Title="Αναφορά Προβλήματος">
+    <ContentPage.Content>
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+            <Picker x:Name="reason" HorizontalOptions="FillAndExpand" Title="Επιλογή Προβλήματος" SelectedIndexChanged="Reason_OnSelectedIndexChanged">
+                <Picker.Items>
+                    <x:String>Εκτός Λειτουργίας</x:String>
+                    <x:String>Απουσία Απινιδωτή</x:String>
+                    <x:String>Άλλο</x:String>
+                </Picker.Items>
+            </Picker>
+            <Entry Placeholder="Σχόλια" x:Name="comment" />
+            <Entry Placeholder="Αιτιολογία" x:Name="other" IsVisible="False"/>
+            <Button Text="SEND" x:Name="send" Clicked="SendButton" BackgroundColor="DodgerBlue" TextColor="White"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

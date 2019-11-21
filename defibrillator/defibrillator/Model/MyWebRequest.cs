@@ -31,13 +31,13 @@ namespace defibrillator.Model
 
         }
 
-        public async Task OnAdd(Defibrillator def)
+        public async Task OnAdd(Defibrillator def, string what)
         {
 
             var json = JsonConvert.SerializeObject(def);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var url = "http://samosdefibrillator.azurewebsites.net/api/Map/AddNewDefibrillator";
+            var url = "http://samosdefibrillator.azurewebsites.net/api/Map/"+ what;
             var client = new HttpClient();
 
             var response = await client.PostAsync(url, data);

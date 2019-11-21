@@ -85,7 +85,30 @@ namespace defibrillator.Views
         }
 
 
-        
+        private void OnSelection(object sender, SelectedItemChangedEventArgs e)
+        {
+            
+        }
+
+        private void OnTaped(object sender, ItemTappedEventArgs e)
+        {
+            Defibrillator d = (Defibrillator) listView.SelectedItem;
+            Position position = new Position(double.Parse(d.Posx), double.Parse(d.Posy));
+            MapSpan mapSpan = MapSpan.FromCenterAndRadius(position, Distance.FromKilometers(0.444));
+            map.MoveToRegion(mapSpan);
+        }
+
+        private void Edit(object sender, EventArgs e)
+        {
+            Defibrillator d = (Defibrillator)listView.SelectedItem;
+            this.Navigation.PushAsync(new EditDef(d),true);
+        }
+
+        private void Report(object sender, EventArgs e)
+        {
+            Defibrillator d = (Defibrillator)listView.SelectedItem;
+            this.Navigation.PushAsync(new ReportDef(d), true);
+        }
     }
 
 }

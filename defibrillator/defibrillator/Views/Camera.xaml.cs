@@ -76,7 +76,7 @@ namespace defibrillator.Views
             def.Posx = lan.ToString();
             def.Posy = lon.ToString();
             MyWebRequest newreq = new MyWebRequest();
-            newreq.OnAdd(def);
+            newreq.OnAdd(def, "AddNewDefibrillator");
             await DisplayAlert("Uploaded", "Image uploaded to Blob Storage Successfully!", "OK");
             MainPage main = new MainPage();
             this.Navigation.PushAsync(new TabedPage(), true);

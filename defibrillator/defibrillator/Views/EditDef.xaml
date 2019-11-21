@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="defibrillator.Views.EditDef"
+             Title="Επεξεργασία">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <Image Source="" x:Name="imagedef" Scale="0.8"/>
+            <Entry Text="" x:Name="namedef"/>
+            <Entry Text="" x:Name="discriptiondef"/>
+            <Entry Text="" x:Name="posxdef" IsEnabled="False"/>
+            <Entry Text="" x:Name="posydef" IsEnabled="False"/>
+            <Button Text="SAVE" x:Name="savebutton" Clicked="Save"/>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
