@@ -3,18 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              mc:Ignorable="d"
              x:Class="defibrillator.Views.Camera"
              Title="Add New"
              BackgroundColor="LightGray">
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout Padding="50" VerticalOptions="CenterAndExpand">
-            
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
 
-                
 
-                <Image x:Name="PhotoImage" Scale="0.5" />
+            <maps:Map x:Name="map" IsShowingUser="true" HasScrollEnabled="True" WidthRequest="300" HeightRequest="300" />
+
+                <Image x:Name="PhotoImage" Scale="0" IsVisible="False"/>
 
                 <Entry Placeholder="Όνομα" x:Name="name" ></Entry>
                 <Entry Placeholder="Περιγραφή" x:Name="description"></Entry>

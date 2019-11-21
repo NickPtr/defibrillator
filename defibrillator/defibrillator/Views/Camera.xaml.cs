@@ -5,8 +5,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using defibrillator.Model;
+using Plugin.Geolocator;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 namespace defibrillator.Views
@@ -14,6 +16,8 @@ namespace defibrillator.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Camera : ContentPage
     {
+        private double lan;
+        private double lon;
         private Stream camerasStream;
         public Camera()
         {
@@ -21,9 +25,26 @@ namespace defibrillator.Views
 
             CameraButton.Clicked += CameraButton_Clicked;
 
+            Position position = new Position(lan, lon);
+            MapSpan mapSpan = MapSpan.FromCenterAndRadius(position, Distance.FromKilometers(0.444));
+            map.MoveToRegion(mapSpan);
+            
+            Location();
+
         }
 
+        public async void Location()
+        {
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 50;
 
+            var position = await locator.GetPositionAsync(TimeSpan.FromMilliseconds(10000));
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), Distance.FromMiles(1)));
+            lan = position.Latitude;
+            lon = position.Longitude;
+        }
+
+       
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
             var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
@@ -31,6 +52,7 @@ namespace defibrillator.Views
             if (photo != null)
                 PhotoImage.Source = ImageSource.FromStream(() =>
                 {
+                    
                     camerasStream = photo.GetStream();
                     return photo.GetStream();
                 });
@@ -47,13 +69,26 @@ namespace defibrillator.Views
             var blockBlob = container.GetBlockBlobReference($"{name}.png");
             await blockBlob.UploadFromStreamAsync(stream);
             string URL = blockBlob.Uri.OriginalString;
-           
+            Defibrillator def = new Defibrillator();
+            def.Description = description.Text;
+            def.Name = this.name.Text;
+            def.PhotoLink = URL;
+            def.Posx = lan.ToString();
+            def.Posy = lon.ToString();
+            MyWebRequest newreq = new MyWebRequest();
+            newreq.OnAdd(def);
             await DisplayAlert("Uploaded", "Image uploaded to Blob Storage Successfully!", "OK");
+            MainPage main = new MainPage();
+            this.Navigation.PushAsync(new TabedPage(), true);
         }
+
+
+
 
         private void Save_OnClicked(object sender, EventArgs e)
         {
            UploadImage(camerasStream);
+           
         }
     }
 }

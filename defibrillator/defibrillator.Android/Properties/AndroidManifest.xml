@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.defibrillator">
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
     <application android:label="defibrillator.Android">
+
+      <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyB5txU-h3XRtLM2_rLwRzEttH-wmT3Dxxg" />
+      <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+      <!-- Necessary for apps that target Android 9.0 or higher -->
+      <uses-library android:name="org.apache.http.legacy" android:required="false" />
+
       <provider android:name="android.support.v4.content.FileProvider"
                 android:authorities="${applicationId}.fileprovider"
                 android:exported="false"
@@ -10,6 +16,10 @@
                    android:resource="@xml/file_paths"></meta-data>
       </provider>
     </application>
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

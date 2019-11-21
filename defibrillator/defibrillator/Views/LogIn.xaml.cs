@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using defibrillator.Model;
@@ -39,14 +40,16 @@ namespace defibrillator
                     this.Navigation.PushAsync(new TabedPage(), true);
 
                 }
-
+                else
+                {
+                    Alert.Text = "Wrong e-mail or password";
+                    Username.Text = "";
+                    Password.Text = "";
+                }
             }
             catch (Exception exception)
             {
-
-                Alert.Text = "Wrong e-mail or password";
-                Username.Text = "";
-                Password.Text = "";
+                DisplayAlert("ok",exception.ToString(),"ok");
 
             }
 
