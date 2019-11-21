@@ -2,23 +2,24 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace DefibrillatorBase
-
 {
     public partial class Login : System.Web.UI.Page
     {
-      
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                    Response.Redirect("~/Home");
+                    StatusText.Text = string.Format("Hello {0}!!", User.Identity.GetUserName());
+                    LoginStatus.Visible = true;
                     
                 }
                 else
@@ -54,11 +55,6 @@ namespace DefibrillatorBase
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut();
             Response.Redirect("~/Login.aspx");
-        }
-
-        public void RegisterAcc(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Register.aspx");
         }
     }
 }
