@@ -56,5 +56,10 @@ namespace DefibrillatorBase
             authenticationManager.SignOut();
             Response.Redirect("~/Login.aspx");
         }
+
+        protected void CreateAcc(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Register.aspx");
+        }
     }
 }

@@ -69,12 +69,12 @@
          </asp:PlaceHolder>
                 <div class="text-center">
 						<span class="txt1">
-							Create an account?
+							Not a Member?
 						</span>
 
-						<asp:HyperLink runat="server" onClick="RegisterAcc" class="txt2 hov1">
+						<asp:Linkbutton runat="server" onClick="CreateAcc" class="txt2 hov1">
 							Sign up
-						</asp:HyperLink>
+						</asp:Linkbutton>
 					</div>
          
     </form>
