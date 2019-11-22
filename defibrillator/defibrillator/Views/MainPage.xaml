@@ -6,14 +6,13 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              mc:Ignorable="d"
              x:Class="defibrillator.Views.MainPage"
-             Title="Map"
+             Title="Απινιδωτές"
              >
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout VerticalOptions="StartAndExpand" Padding="10">
+        <StackLayout VerticalOptions="StartAndExpand" Padding="10">
 
                 <maps:Map x:Name="map" IsShowingUser="true" HasScrollEnabled="True"  HeightRequest="300"></maps:Map>
-
+                <ScrollView>
                 <ListView  x:Name="listView" RowHeight="60" ItemSelected="OnSelection" ItemTapped="OnTaped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -33,8 +32,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
-            </StackLayout>
-        </ScrollView>
+                </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
-</ContentPage>+
+</ContentPage>

@@ -65,8 +65,8 @@ namespace defibrillator.Views
                     this.Navigation.PushAsync(new SignUp(), true);
                 });
             }
-           
 
+           
         }
 
         public async Task ShowMessage(string message,

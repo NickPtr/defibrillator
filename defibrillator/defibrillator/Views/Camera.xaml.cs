@@ -21,10 +21,11 @@ namespace defibrillator.Views
         private double lan;
         private double lon;
         private Stream camerasStream;
-        public Camera()
+        private User user;
+        public Camera(User user)
         {
             InitializeComponent();
-
+            this.user = user;
             CameraButton.Clicked += CameraButton_Clicked;
 
             Position position = new Position(lan, lon);
@@ -76,6 +77,7 @@ namespace defibrillator.Views
             def.Description = description.Text;
             def.Name = this.name.Text;
             def.PhotoLink = URL;
+            Location();
             def.Posx = lan.ToString();
             def.Posy = lon.ToString();
             UserDialogs.Instance.HideLoading();
@@ -84,8 +86,8 @@ namespace defibrillator.Views
             newreq.OnAdd(def, "AddNewDefibrillator");
             UserDialogs.Instance.HideLoading();
             UserDialogs.Instance.Alert("Ολολκηρώθηκε");
-            MainPage main = new MainPage();
-            this.Navigation.PushAsync(new TabedPage(), true);
+            MainPage main = new MainPage(user);
+            this.Navigation.PushAsync(new TabedPage(user), true);
         }
 
 
@@ -93,8 +95,31 @@ namespace defibrillator.Views
 
         private void Save_OnClicked(object sender, EventArgs e)
         {
-           UploadImage(camerasStream);
+
+            if (Check())
+            {
+                UploadImage(camerasStream);
+            }
+
+          
            
+        }
+
+        private bool Check()
+        {
+            if (name.Text == "" || description.Text == "" )
+            {
+                UserDialogs.Instance.Alert("Όλα τα παιδία πρέπει να είναι συμπληρωμένα");
+                return false;
+            }
+
+            if (PhotoImage.Source == null)
+            {
+                UserDialogs.Instance.Alert("Δεν υπάρχει φωτογραφία");
+                return false;
+            }
+                
+            return true;
         }
     }
 }

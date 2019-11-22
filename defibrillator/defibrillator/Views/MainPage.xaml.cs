@@ -23,10 +23,11 @@ namespace defibrillator.Views
         private List<Defibrillator> posdef=null;
         private double lan;
         private double lon;
-        public MainPage()
+        private User user;
+        public MainPage(User user)
         {
             InitializeComponent();
-            
+            this.user = user;
             Request();
             Location();
             Position position = new Position(lan,lon);
@@ -106,7 +107,7 @@ namespace defibrillator.Views
         private void Edit(object sender, EventArgs e)
         {
             Defibrillator d = (Defibrillator)listView.SelectedItem;
-            this.Navigation.PushAsync(new EditDef(d),true);
+            this.Navigation.PushAsync(new EditDef(d,user),true);
         }
 
         private void Report(object sender, EventArgs e)

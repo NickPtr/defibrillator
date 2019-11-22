@@ -12,11 +12,11 @@ namespace defibrillator.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditDef : ContentPage
     {
-        
-        public EditDef(Defibrillator d)
+        private User user;
+        public EditDef(Defibrillator d,User user)
         {
             InitializeComponent();
-
+            this.user = user;
             namedef.Text = d.Name;
             discriptiondef.Text = d.Description;
             posxdef.Text = d.Posx;
@@ -43,8 +43,8 @@ namespace defibrillator.Views
                 if (request.Get_Confirmation().Contains("OK"))
                 {
                     DisplayAlert("Alert", "Your changes applied succesfully", "Ok");
-                    MainPage main = new MainPage();
-                    this.Navigation.PushAsync(new TabedPage(), true);
+                    MainPage main = new MainPage(user);
+                    this.Navigation.PushAsync(new TabedPage(user), true);
 
                 }
                 else
