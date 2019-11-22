@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
 using defibrillator.Model;
 using Newtonsoft.Json;
 using Plugin.Geolocator;
@@ -25,12 +26,13 @@ namespace defibrillator.Views
         public MainPage()
         {
             InitializeComponent();
+            
             Request();
             Location();
             Position position = new Position(lan,lon);
             MapSpan mapSpan = MapSpan.FromCenterAndRadius(position, Distance.FromKilometers(0.444));
             map.MoveToRegion(mapSpan);
-            
+      
            
             foreach (var i in posdef)
             {
@@ -54,11 +56,13 @@ namespace defibrillator.Views
 
                 listView.ItemsSource = list;
             }
+           
             
         }
 
         public async void Location()
         {
+            
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 50;
 
@@ -81,6 +85,7 @@ namespace defibrillator.Views
             }
 
             posdef = JsonConvert.DeserializeObject<List<Defibrillator>>(apiresp);
+            
             
         }
 

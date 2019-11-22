@@ -10,6 +10,7 @@ using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using Acr.UserDialogs;
 
 namespace defibrillator.Views
 {
@@ -61,6 +62,7 @@ namespace defibrillator.Views
 
         private async void UploadImage(Stream stream)
         {
+            UserDialogs.Instance.ShowLoading("Ανέβασμα Φωτογραφίας");
             var account = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=defibrillatorphotodata;AccountKey=d7CG+7nZGxUc40BPZXSLVi1eILcwEd3wb/JyrMh/AlL+kp/jjFGhW2vZawUQEpRDTujlJJ0hrStaM7n4We2vWw==;EndpointSuffix=core.windows.net");
             var client = account.CreateCloudBlobClient();
             var container = client.GetContainerReference("images");
@@ -75,9 +77,12 @@ namespace defibrillator.Views
             def.PhotoLink = URL;
             def.Posx = lan.ToString();
             def.Posy = lon.ToString();
+            UserDialogs.Instance.HideLoading();
+            UserDialogs.Instance.ShowLoading("Προσθήκη στο χάρτη");
             MyWebRequest newreq = new MyWebRequest();
             newreq.OnAdd(def, "AddNewDefibrillator");
-            await DisplayAlert("Uploaded", "Image uploaded to Blob Storage Successfully!", "OK");
+            UserDialogs.Instance.HideLoading();
+            UserDialogs.Instance.Alert("Ολολκηρώθηκε");
             MainPage main = new MainPage();
             this.Navigation.PushAsync(new TabedPage(), true);
         }

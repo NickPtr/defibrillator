@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
 using defibrillator.Model;
 using defibrillator.Views;
 using Xamarin.Forms;
@@ -22,6 +23,7 @@ namespace defibrillator
 
         private async void Login_Clicked(object sender, EventArgs e)
         {
+            UserDialogs.Instance.ShowLoading("Σύνδεση");
 
             var user = new User();
 
@@ -38,7 +40,7 @@ namespace defibrillator
                 if (request.Get_Confirmation().Contains("OK"))
                 {
                     this.Navigation.PushAsync(new TabedPage(), true);
-
+                    UserDialogs.Instance.HideLoading();
                 }
                 else
                 {

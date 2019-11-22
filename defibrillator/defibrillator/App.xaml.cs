@@ -10,7 +10,12 @@ namespace defibrillator
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LogIn());
+            MainPage = new NavigationPage(new LogIn())
+            {
+                BarBackgroundColor = Color.FromHex("#6A2C90"),
+                BarTextColor = Color.White,
+
+            };
         }
 
         protected override void OnStart()

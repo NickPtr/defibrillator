@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Acr.UserDialogs;
 
 namespace defibrillator.Droid
 {
@@ -16,6 +17,7 @@ namespace defibrillator.Droid
 
         protected override void OnStart()
         {
+            UserDialogs.Init(this);
             base.OnStart();
 
             if ((int)Build.VERSION.SdkInt >= 23)
@@ -31,6 +33,7 @@ namespace defibrillator.Droid
                 }
             }
         }
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

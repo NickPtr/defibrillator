@@ -5,16 +5,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="defibrillator.LogIn"
-             BackgroundColor="LightGray">
+            >
     <ContentPage.Content >
-        <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Padding="25" >
-            <Image Source="defibrillator.png" Scale="1" HorizontalOptions="CenterAndExpand" ></Image>
-            
-            <Entry x:Name="Username" Placeholder="E-mail" FontSize="14"  BackgroundColor="LightGray"></Entry>
-            <Entry x:Name="Password" Placeholder="Password" FontSize="14"   IsPassword="True" BackgroundColor="LightGray"></Entry>
-            <Label x:Name="Alert" TextColor="Red" Text=""></Label>
-            <Button x:Name="Login" Text="Login" TextColor="White" FontSize="14" BackgroundColor="DodgerBlue" Clicked="Login_Clicked"></Button>
-            <Button x:Name="Create" Text="Create an account" FontSize="14"  TextColor="DodgerBlue" BackgroundColor="Transparent" Clicked="Create_OnClicked"></Button>
-        </StackLayout>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="End" Padding="30" >
+            <Image Source="defibrillator.png" Scale="0.5" HorizontalOptions="CenterAndExpand" ></Image>
+
+            <Entry x:Name="Username" FontFamily="{StaticResource Font}" Placeholder="E-mail"  FontSize="14"  ></Entry>
+            <Entry x:Name="Password"  FontFamily="{StaticResource Font}" Placeholder="Password" FontSize="14"   IsPassword="True"></Entry>
+            <Label x:Name="Alert" TextColor="Red" FontSize="14" FontFamily="{StaticResource Font}" Text=""></Label>
+            <Button x:Name="Login" Text="Login" TextColor="White" FontSize="14" FontFamily="{StaticResource Font}"
+                    BackgroundColor="#6A2C91"  Clicked="Login_Clicked"></Button>
+          <Button x:Name="Create" Text="Create an account" BackgroundColor="Transparent"   FontFamily="{StaticResource Font}" TextColor="#6A2C91"
+                  Clicked="Create_OnClicked"  ></Button>
+</StackLayout>
     </ContentPage.Content>
 </ContentPage>

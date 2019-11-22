@@ -16,7 +16,8 @@ namespace defibrillator.Views
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-
+            BarBackgroundColor = Color.FromHex("#6A2C90");
+            BarTextColor = Color.White;
             this.Children.Add(new MainPage());
             this.Children.Add(new Camera());
         }

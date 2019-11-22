@@ -7,5 +7,12 @@
              x:Class="defibrillator.App">
     <Application.Resources>
 
+      <ResourceDictionary>
+        <OnPlatform x:TypeArguments="x:String" x:Key="Font">
+          <On Platform="Android" Value="Montserrat.otf#font" />
+          <On Platform="iOS" Value="Montserrat.otf" />
+        </OnPlatform>
+      </ResourceDictionary>
+
     </Application.Resources>
 </Application>
