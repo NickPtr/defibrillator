@@ -8,13 +8,14 @@
              Title="Επεξεργασία">
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout>
-            <Image Source="" x:Name="imagedef" Scale="0.8"/>
-            <Entry Text="" x:Name="namedef"/>
-            <Entry Text="" x:Name="discriptiondef"/>
-            <Entry Text="" x:Name="posxdef" IsEnabled="False"/>
-            <Entry Text="" x:Name="posydef" IsEnabled="False"/>
-            <Button Text="SAVE" x:Name="savebutton" Clicked="Save"/>
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+            <Image Source="" x:Name="imagedef" Scale="0.5"/>
+                <Entry Text="" x:Name="namedef" FontSize="14" FontFamily="{StaticResource Font}"/>
+                <Entry Text="" x:Name="discriptiondef" FontSize="14" FontFamily="{StaticResource Font}"/>
+                <Entry Text="" x:Name="posxdef" IsEnabled="False" FontSize="14" FontFamily="{StaticResource Font}"/>
+                <Entry Text="" x:Name="posydef" IsEnabled="False" FontSize="14" FontFamily="{StaticResource Font}"/>
+                <Button Text="SAVE" x:Name="savebutton" Clicked="Save" TextColor="White" FontSize="14" FontFamily="{StaticResource Font}"
+                        BackgroundColor="#6A2C91"/>
         </StackLayout>
         </ScrollView>
     </ContentPage.Content>

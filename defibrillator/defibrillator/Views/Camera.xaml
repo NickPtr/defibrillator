@@ -13,15 +13,16 @@
         <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
 
 
-            <maps:Map x:Name="map" IsShowingUser="true" HasScrollEnabled="True" WidthRequest="300" HeightRequest="300" />
+            <maps:Map x:Name="map" IsShowingUser="true" HasScrollEnabled="True" HeightRequest="300" />
 
                 <Image x:Name="PhotoImage" Scale="0" IsVisible="False"/>
+                <Entry Placeholder="Όνομα" FontSize="14" FontFamily="{StaticResource Font}" x:Name="name" ></Entry>
+                <Entry Placeholder="Περιγραφή" FontSize="14" FontFamily="{StaticResource Font}" x:Name="description"></Entry>
 
-                <Entry Placeholder="Όνομα" x:Name="name" ></Entry>
-                <Entry Placeholder="Περιγραφή" x:Name="description"></Entry>
-            
-            <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1" BackgroundColor="DodgerBlue" TextColor="White"/>
-            <Button x:Name="save" Text="Save" Clicked="Save_OnClicked" BackgroundColor="DodgerBlue" TextColor="White"/>
+                <Button x:Name="CameraButton" Text="Take Photo" TextColor="White" FontSize="14" FontFamily="{StaticResource Font}"
+                        BackgroundColor="#6A2C91"/>
+                <Button x:Name="save" Text="Save" Clicked="Save_OnClicked" TextColor="White" FontSize="14" FontFamily="{StaticResource Font}"
+                        BackgroundColor="#6A2C91"/>
            
         </StackLayout>
         </ScrollView>

@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using Acr.UserDialogs;
+using Plugin.Media.Abstractions;
 
 namespace defibrillator.Views
 {
@@ -48,7 +49,7 @@ namespace defibrillator.Views
        
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
-            var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
+            var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { PhotoSize = PhotoSize.Small});
 
             if (photo != null)
                 PhotoImage.Source = ImageSource.FromStream(() =>

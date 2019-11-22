@@ -92,7 +92,7 @@ namespace defibrillator.Views
 
         private void OnSelection(object sender, SelectedItemChangedEventArgs e)
         {
-            
+            Defibrillator d = (Defibrillator)listView.SelectedItem;
         }
 
         private void OnTaped(object sender, ItemTappedEventArgs e)

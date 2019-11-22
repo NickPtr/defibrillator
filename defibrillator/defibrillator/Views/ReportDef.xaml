@@ -8,16 +8,17 @@
              Title="Αναφορά Προβλήματος">
     <ContentPage.Content>
         <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
-            <Picker x:Name="reason" HorizontalOptions="FillAndExpand" Title="Επιλογή Προβλήματος" SelectedIndexChanged="Reason_OnSelectedIndexChanged">
+            <Picker x:Name="reason" HorizontalOptions="FillAndExpand" Title="Επιλογή Προβλήματος" SelectedIndexChanged="Reason_OnSelectedIndexChanged" FontSize="14" FontFamily="{StaticResource Font}">
                 <Picker.Items>
                     <x:String>Εκτός Λειτουργίας</x:String>
                     <x:String>Απουσία Απινιδωτή</x:String>
                     <x:String>Άλλο</x:String>
                 </Picker.Items>
             </Picker>
-            <Entry Placeholder="Σχόλια" x:Name="comment" />
-            <Entry Placeholder="Αιτιολογία" x:Name="other" IsVisible="False"/>
-            <Button Text="SEND" x:Name="send" Clicked="SendButton" BackgroundColor="DodgerBlue" TextColor="White"/>
+            <Entry Placeholder="Σχόλια" x:Name="comment" FontSize="14" FontFamily="{StaticResource Font}"/>
+            <Entry Placeholder="Αιτιολογία" x:Name="other" IsVisible="False" FontSize="14" FontFamily="{StaticResource Font}"/>
+            <Button Text="SEND" x:Name="send" Clicked="SendButton" TextColor="White" FontSize="14" FontFamily="{StaticResource Font}"
+                    BackgroundColor="#6A2C91"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
