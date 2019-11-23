@@ -14,15 +14,27 @@ namespace DefibrillatorBase.Controllers
     public class UserController : ApiController
     {
         Worker db = new Worker();
-
+       
 
         // POST api/User/Login
         public HttpResponseMessage Login(User user)
         {
             if (db.CheckLogin(user))
+            {
+                
                 return new HttpResponseMessage(HttpStatusCode.OK);
+
+            }
+               
             return new HttpResponseMessage(HttpStatusCode.NotFound);
 
+        }
+        //POST api/user/POSTUSER
+        public List<User> PostUser(User user)
+        {
+            List<User> list = new List<User>();
+            list.Add(db.GetUser(user));
+            return list;
         }
 
         // POST api/User/Register

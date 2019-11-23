@@ -28,6 +28,12 @@ namespace Mashine
             return false;
         }
 
+        public User GetUser(User user)
+        {
+            User u = db.UserTable.Where(d => d.Mail == user.Mail).First();
+            return u;
+        }
+
         public bool CreateANewUser(User user)
         {
             if(!CheckLogin(user))

@@ -31,5 +31,17 @@ namespace Mashine
             db.SaveChanges();
             return true;
         }
+
+       
+        
+
+        public void SendReport(Report report)
+        {
+           using(ReportContext db = new ReportContext())
+            {
+                db.ReportTable.Add(report);
+                db.SaveChanges();
+            }
+        }
     }
 }

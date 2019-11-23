@@ -87,6 +87,8 @@
   <ItemGroup>
     <Compile Include="Models\Defibrillator.cs" />
     <Compile Include="Models\DefibrillatorContext.cs" />
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\ReportContext.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -40,5 +40,11 @@ namespace DefibrillatorBase.Controllers
             return new HttpResponseMessage(HttpStatusCode.OK);
             return new HttpResponseMessage(HttpStatusCode.NotModified);
         }
+
+        //POST api/Map/Post
+       public void Report(Report report)
+        {
+            db.SendReport(report);
+        }
     }
 }
