@@ -54,10 +54,10 @@ namespace defibrillator
                     Console.WriteLine(strlist[13]);
                     Console.WriteLine(ok);
                     user.ProfilePicture = ok;
-                    this.Navigation.PushAsync(new TabedPage(user), true);
-                    UserDialogs.Instance.HideLoading();
                     Username.Text = "";
                     Password.Text = "";
+                    UserDialogs.Instance.HideLoading();
+                    this.Navigation.PushAsync(new TabedPage(user), true);
                 }
                 else
                 {

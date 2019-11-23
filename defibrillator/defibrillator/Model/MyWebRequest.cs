@@ -49,6 +49,25 @@ namespace defibrillator.Model
 
         }
 
+
+        public async Task OnAdd(Report rep, string what)
+        {
+
+            var json = JsonConvert.SerializeObject(rep);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var url = "http://samosdefibrillator.azurewebsites.net/api/Map/" + what;
+            var client = new HttpClient();
+
+            var response = await client.PostAsync(url, data);
+
+            var result = response.EnsureSuccessStatusCode().StatusCode;
+            Console.WriteLine(result);
+            Set_Confirmation(result.ToString());
+
+
+        }
+
         public void Set_Confirmation(string result)
         {
             this.result = result;

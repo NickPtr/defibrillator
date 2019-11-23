@@ -113,7 +113,7 @@ namespace defibrillator.Views
         private void Report(object sender, EventArgs e)
         {
             Defibrillator d = (Defibrillator)listView.SelectedItem;
-            this.Navigation.PushAsync(new ReportDef(d), true);
+            this.Navigation.PushAsync(new ReportDef(d,user), true);
         }
     }
 

@@ -8,9 +8,9 @@
             >
     <ContentPage.Content >
         <StackLayout HorizontalOptions="Center" VerticalOptions="End" Padding="30" >
-            <Image Source="defibrillator.png" Scale="0.5" HorizontalOptions="CenterAndExpand" ></Image>
+            <Image Source="defibrillator.png" Scale="0.8" HorizontalOptions="CenterAndExpand" ></Image>
 
-            <Entry x:Name="Username" FontFamily="{StaticResource Font}" Placeholder="E-mail"  FontSize="14"  ></Entry>
+            <Entry x:Name="Username" FontFamily="{StaticResource Font}" Placeholder="Username"  FontSize="14"  ></Entry>
             <Entry x:Name="Password"  FontFamily="{StaticResource Font}" Placeholder="Password" FontSize="14"   IsPassword="True"></Entry>
             <Label x:Name="Alert" TextColor="Red" FontSize="14" FontFamily="{StaticResource Font}" Text=""></Label>
             <Button x:Name="Login" Text="Login" TextColor="White" FontSize="14" FontFamily="{StaticResource Font}"

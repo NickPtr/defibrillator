@@ -7,26 +7,36 @@
              x:Class="defibrillator.Views.Profile"
              Title="Προφίλ">
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Image Source="" x:Name="profpic" Grid.Row="0" Scale="0.5"></Image>
-            <StackLayout Grid.Row="1">
+        <ScrollView Padding="10" VerticalOptions="StartAndExpand">
+            <StackLayout>
+                <Label Text="" x:Name="profname"  HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="Black" FontSize="35" FontFamily="{StaticResource Font}"></Label>
+                <Frame   CornerRadius="100" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center" Padding="0" IsClippedToBounds="True" >
+                    <ImageButton Source="" x:Name="profpic" Clicked="Profpic_OnClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </Frame>
+
+                <Label></Label>
+                <Label></Label>
+                <Label></Label>
+                <Label Text="Βίντεο Εκμάθηνσης ΚΑΡΠΑ" FontFamily="{StaticResource Font}" FontSize="14" HorizontalOptions="CenterAndExpand"></Label>
+                <WebView x:Name="karpa" Source="https://www.youtube.com/embed/fb29LCjX4-E" HeightRequest="200" ></WebView>
+                <Label></Label>
+                <Label></Label>
+                <Label></Label>
+                
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <StackLayout Grid.Column="0">
-                        <Label Text="E-mail: " FontSize="15" Grid.Column="0"></Label>
-                    </StackLayout>
-                    <StackLayout Grid.Column="1">
-                        <Label Text="Brain" x:Name="profname"></Label>
-                    </StackLayout>
+
+                    <Label Text="Συμμετοχή στην υπηρεσία ενημέρωσης συμβάντων" FontSize="12" Grid.Column="0" HorizontalOptions="StartAndExpand"/>
+
+                    <Switch x:Name="inform" OnColor="#6A2C91"  Grid.Column="1" HorizontalOptions="EndAndExpand"/>
+                    
                 </Grid>
-            </StackLayout>
-        </Grid>
+                <ImageButton x:Name="logout" Source="logout.png" BackgroundColor="Transparent" Clicked="Logout_OnClicked" />
+                
+                </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

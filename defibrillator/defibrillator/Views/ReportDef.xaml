@@ -15,8 +15,8 @@
                     <x:String>Άλλο</x:String>
                 </Picker.Items>
             </Picker>
-            <Entry Placeholder="Σχόλια" x:Name="comment" FontSize="14" FontFamily="{StaticResource Font}"/>
-            <Entry Placeholder="Αιτιολογία" x:Name="other" IsVisible="False" FontSize="14" FontFamily="{StaticResource Font}"/>
+            <Entry Placeholder="Σχόλια" Text="" x:Name="comment" FontSize="14" FontFamily="{StaticResource Font}"/>
+            <Entry Placeholder="Αιτιολογία" Text="" x:Name="other" IsVisible="False" FontSize="14" FontFamily="{StaticResource Font}"/>
             <Button Text="SEND" x:Name="send" Clicked="SendButton" TextColor="White" FontSize="14" FontFamily="{StaticResource Font}"
                     BackgroundColor="#6A2C91"/>
         </StackLayout>
