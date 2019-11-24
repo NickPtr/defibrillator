@@ -1,4 +1,5 @@
 ﻿using Core.Models;
+using DefibrillatorBase.Model;
 using Mashine;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,30 @@ namespace DefibrillatorBase.Controllers
         MapService db = new MapService();
         public ActionResult Index()
         {
+            
             ViewBag.Title = "Home Page";
             
            
-            return View();
+            return View(FixLaTLon(db.GetAll()));
         }
 
-        public ActionResult AddMarker()
+        private List<Def> FixLaTLon(List<Defibrillator> list)
         {
-            return View();
+           List<Def> fixed_items = new List<Def>();
+            foreach(var i  in list)
+            {
+                fixed_items.Add(new Def()
+                {
+                    Description = i.Description,
+                    Name = i.Name,
+                    PhotoLink=i.PhotoLink,
+                    Posx=float.Parse(i.Posx),
+                    Posy=float.Parse(i.Posy)
+                });
+            }
+            return fixed_items;
+
+            
         }
     }
 }

@@ -47,6 +47,12 @@ namespace DefibrillatorBase.Controllers
 
         }
 
+        [HttpPost]
+        public User UpdateUser(User user)
+        {
+            return db.UpdateUser(user);
+        }
+
         // PUT api/<controller>/5
         public void Put(int id, [FromBody]string value)
         {

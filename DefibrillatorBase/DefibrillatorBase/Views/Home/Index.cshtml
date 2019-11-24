@@ -1,1 +1,29 @@
 ﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>@ViewBag.Title</title>
+<div id="mapDiv" style="width: 1600px; height: 1000px"></div>
+<script>
+     var def = @Html.Raw(Json.Encode(Model));
+    // position we will use later
+    
+    var lat = 37.7932201 ;
+    var lon = 26.6880529;
+    // initialize map
+    map = L.map('mapDiv').setView([lat, lon], 17);
+    // set map tiles source
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+    }).addTo(map);  
+    var marker = L.marker([def[0].Posx, def[0].Posy]).addTo(map)
+    for (var i = 0; i < def.length; i++) {
+        var marker = L.marker([def[i].Posx, def[i].Posy]).addTo(map)
+        marker.bindPopup(def[i].Name).openPopup();
+    }
+    
+    // add popup to the marker
+    
+  </script>  

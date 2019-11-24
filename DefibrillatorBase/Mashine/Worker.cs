@@ -45,5 +45,15 @@ namespace Mashine
             return false;
            
         }
+
+        public User UpdateUser(User user)
+        {
+            User def = db.UserTable.Where(d => d.Mail == user.Mail).First();
+            def.Mail = user.Mail;
+            def.Password = user.Password;
+            def.ProfilePicture = user.ProfilePicture;
+            db.SaveChanges();
+            return def;
+        }
     }
 }
