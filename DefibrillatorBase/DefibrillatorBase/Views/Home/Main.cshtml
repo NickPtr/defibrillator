@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <h2>Πρέπει να συνδεθείτε πρώτα για την εμφάνιση της σελίδας!</h2>
+    @Html.ActionLink("Σύνδεση", "RedirectToAspx", "Home", new { area = "" }, null)
+}
+
+

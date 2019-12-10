@@ -31,23 +31,32 @@ namespace DefibrillatorBase
 
         protected void SignIn(object sender, EventArgs e)
         {
-            var userStore = new UserStore<IdentityUser>();
-            var userManager = new UserManager<IdentityUser>(userStore);
-            var user = userManager.Find(UserName.Text, Password.Text);
-
-            if (user != null)
+            try
             {
-                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                var userStore = new UserStore<IdentityUser>();
+                var userManager = new UserManager<IdentityUser>(userStore);
+                var user = userManager.Find(UserName.Text, Password.Text);
 
-                authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
-                Response.Redirect("~/Login.aspx");
+                if (user != null)
+                {
+                    var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                    var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+                    authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
+                    Response.Redirect("~/Home/Main");
+                }
+                else
+                {
+                    StatusText.Text = "Invalid username or password.";
+                    LoginStatus.Visible = true;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                StatusText.Text = "Invalid username or password.";
+                StatusText.Text = "Connection Problem";
                 LoginStatus.Visible = true;
             }
+           
         }
 
         protected void SignOut(object sender, EventArgs e)
