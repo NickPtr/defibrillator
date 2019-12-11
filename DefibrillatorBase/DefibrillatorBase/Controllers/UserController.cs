@@ -1,38 +1,29 @@
-﻿using Core.Models;
-using Mashine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Web.Http;
+using Core.Models;
+using Mashine;
 
 namespace DefibrillatorBase.Controllers
 {
     public class UserController : ApiController
     {
-        Worker db = new Worker();
-       
+        private readonly Worker db=new Worker ();
+
 
         // POST api/User/Login
         public HttpResponseMessage Login(User user)
         {
-            if (db.CheckLogin(user))
-            {
-                
-                return new HttpResponseMessage(HttpStatusCode.OK);
+            if (db.CheckLogin(user)) return new HttpResponseMessage(HttpStatusCode.OK);
 
-            }
-               
             return new HttpResponseMessage(HttpStatusCode.NotFound);
-
         }
+
         //POST api/user/POSTUSER
         public List<User> PostUser(User user)
         {
-            List<User> list = new List<User>();
+            var list=new List<User> ();
             list.Add(db.GetUser(user));
             return list;
         }
@@ -43,8 +34,6 @@ namespace DefibrillatorBase.Controllers
             if (!db.CreateANewUser(user))
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
             return new HttpResponseMessage(HttpStatusCode.OK);
-            
-
         }
 
         [HttpPost]
@@ -54,7 +43,7 @@ namespace DefibrillatorBase.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 

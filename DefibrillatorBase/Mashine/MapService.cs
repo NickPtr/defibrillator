@@ -11,6 +11,7 @@ namespace Mashine
     {
 
         DefibrillatorContext db = new DefibrillatorContext();
+        ReportContext rep = new ReportContext ();
 
         public List<Defibrillator> GetAll()
         {
@@ -32,16 +33,18 @@ namespace Mashine
             return true;
         }
 
-       
-        
+        public List<Report> GetReports ()
+        {
+            return rep.ReportTable.ToList<Report>();
+        }
 
         public void SendReport(Report report)
         {
            using(ReportContext db = new ReportContext())
-            {
-                db.ReportTable.Add(report);
-                db.SaveChanges();
-            }
+           {
+               db.ReportTable.Add(report);
+               db.SaveChanges();
+           }
         }
     }
 }

@@ -1,0 +1,18 @@
+﻿@using System.Activities.Statements
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if(User.Identity.IsAuthenticated)
+{
+<h1>Username: @User.Identity.Name</h1>
+<li>@Html.ActionLink("Αποσύνδεση", "Logout", "Home", new { area = "" }, null)</li>
+}
+else
+{
+<h2>Πρέπει να συνδεθείτε πρώτα για την εμφάνιση της σελίδας!</h2>
+@Html.ActionLink("Σύνδεση", "RedirectToAspx", "Home", new { area = "" }, null)
+}
+
