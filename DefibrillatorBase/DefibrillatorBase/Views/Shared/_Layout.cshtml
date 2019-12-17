@@ -20,19 +20,21 @@
 <body onload="Start()">
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container">
-        @Html.ActionLink("Samos Defibrillator", "Index", "Home", new {area=""}, new {@class="navbar-brand"})
+        <a href="@Url.Action("Index", "Home")" class="navbar-brand" > 
+            <img src="~/images/logo.png" width="150" height="50"/>
+        </a>
         <ul class="right hide-on-med-and-down">
             @if (User.Identity.IsAuthenticated)
             {
-                <li>@Html.ActionLink("Αρχική σελίδα", "Main", "Home", new {area=""}, null)</li>
-                <li>@Html.ActionLink("Προσθήκη Δράσης", "Logout", "Home", new {area=""}, null)</li>
-                <li>@Html.ActionLink("Προφίλ", "ProfileRe", "Home", new {area=""}, null)</li>
-                <li>@Html.ActionLink("Αποσύνδεση", "Logout", "Home", new {area=""}, null)</li>
-                
+                <li>@Html.ActionLink("Αρχική σελίδα", "Main", "Home", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("Προσθήκη Δράσης", "NewAction", "Home", new { area = "" }, null)</li>
+                <!-- <li>@Html.ActionLink("Προφίλ", "ProfileRe", "Home", new {area=""}, null)</li> -->
+                <li>@Html.ActionLink("Αποσύνδεση", "Logout", "Home", new { area = "" }, null)</li>
+
             }
             else
             {
-                <li>@Html.ActionLink("Σύνδεση", "RedirectToAspx", "Home", new {area=""}, null)</li>
+                <li>@Html.ActionLink("Σύνδεση", "RedirectToAspx", "Home", new { area = "" }, null)</li>
             }
 
 
@@ -51,8 +53,29 @@
 <div class="container body-content">
     @RenderBody()
 
-    <footer>
-        <p>&copy; @DateTime.Now.Year - SamosDefibrillator</p>
+     <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <img src="~/images/logo.png" width="150" height="70"/>
+                    <p class="grey-text text-lighten-4">Η εφαρμογή κατασκευάστηκε στα πλαίσια του μαθήματος, Σχεδιασμός Και ανάπτυξη εφαρμογών κινητού υπολογισμού.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Χρήσιμα Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/NickPtr/defibrillator">Mobile App</a></li>
+                        <li><a class="grey-text text-lighten-3" href="">Documentation</a></li>
+                        <li><a class="grey-text text-lighten-3" href="http://www.hrt.org.gr/">Ομάδα Ελλήνων Διασωστών</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Copyrights © @DateTime.Now.Year icsd15088 icsd15173 icsd15221
+            </div>
+        </div>
     </footer>
 </div>
 @Scripts.Render("~/bundles/jquery")

@@ -1,10 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web;
+using System.Web.Management;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using Core.Models;
 using DefibrillatorBase.Model;
+using FirebaseAdmin;
+using FirebaseAdmin.Messaging;
+using Google.Apis.Auth.OAuth2;
 using Mashine;
+
+using Newtonsoft.Json;
 
 namespace DefibrillatorBase.Controllers
 {
@@ -33,6 +45,11 @@ namespace DefibrillatorBase.Controllers
         public ActionResult Profile ()
         {
             ViewBag.Title="Profile";
+            return View ();
+        }
+
+        public ActionResult NewAction ()
+        {
             return View ();
         }
         private List<Def> FixLaTLon(List<Defibrillator> list)
@@ -124,5 +141,13 @@ namespace DefibrillatorBase.Controllers
             list.Add("-");
             return list;
         }
+
+        public void SendPushNotification (Not model)
+        {
+           
+        }
     }
+
+
+
 }

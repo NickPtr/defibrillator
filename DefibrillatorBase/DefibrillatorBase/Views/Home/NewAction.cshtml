@@ -1,0 +1,63 @@
+﻿@model DefibrillatorBase.Model.Not
+@{
+    ViewBag.Title = "NewAction";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <h4>Επιλέξτε το σημείο στον χάρτη που σημβαίνει περιστατικό</h4>
+    <div>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="valign-wrapper">
+                    <div id="mapDiv" style="height: 400px; width: 1280px;"></div>
+                </div>
+                <h4>Είναι οι παρακάτω συντεταγμένες σωστές;</h4>
+                @using (Html.BeginForm("SendPushNotification", "Home", FormMethod.Post))
+                {
+                    <h5>Latitude:</h5> <br />
+                    @Html.TextBoxFor(model=>model.lat,new { id = "lat" })
+                    <h5>Longitude:</h5> <br />
+                   @Html.TextBoxFor(model=>model.lon,new { id = "lon" })
+                    <h5>Μύνημα Ανάγκης(Αν υπάρχει):</h5> <br />
+                   @Html.TextBoxFor(model=>model.message, new { id = "message" })
+                    <br /><br />
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        Αποστολή
+                        <i class="material-icons right">send</i>
+                    </button>
+                }
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var lat = 37.7932201;
+        var lon = 26.6880529;
+        var map = L.map('mapDiv').setView([lat, lon], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+                maxZoom: 18,
+            }).addTo(map);
+        var popup = L.popup();
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("Επιγον περιστατικό")
+                .openOn(map);
+            var marker = L.marker(e.latlng).addTo(map);
+            document.getElementById("lat").value =e.latlng.lat;
+            document.getElementById("lon").value =e.latlng.lng;
+        }
+        map.on('click', onMapClick);
+    </script>
+
+}
+else
+{
+    <h2>Πρέπει να συνδεθείτε πρώτα για την εμφάνιση της σελίδας!</h2>
+
+}
+
