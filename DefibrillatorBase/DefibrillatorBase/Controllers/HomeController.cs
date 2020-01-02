@@ -32,7 +32,7 @@ namespace DefibrillatorBase.Controllers
             ViewBag.Title="Home Page";
             FakePoints ();
             //KANONIKA EINAI TO db.getAll();
-            return View(FixLaTLon(no_internet));
+            return View(FixLaTLon(db.GetAll ()));
         }
 
         public ActionResult Main ()
@@ -114,7 +114,7 @@ namespace DefibrillatorBase.Controllers
             List<Report> reports=db.GetReports ();
             
             //Needs to get the online list 
-            foreach (var i in no_internet)
+            foreach (var i in db.GetAll ())
                 final.Add(new Combined
                 {
 
@@ -132,8 +132,8 @@ namespace DefibrillatorBase.Controllers
             {
                 if (report.Posx == defibrillator.Posx && report.Posy == defibrillator.Posy)
                 {
+                    list.Add(report.Type);
                     list.Add(report.Comment);
-                    list.Add(report.Elses);
                     return list;
                 }
             }

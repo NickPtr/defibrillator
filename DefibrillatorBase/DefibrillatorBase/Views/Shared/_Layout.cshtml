@@ -5,7 +5,7 @@
     <title>@ViewBag.Title</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Starter Template - Materialize</title>
 
     <!-- CSS  -->
@@ -18,46 +18,56 @@
 
 </head>
 <body onload="Start()">
-<nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container">
-        <a href="@Url.Action("Index", "Home")" class="navbar-brand" > 
-            <img src="~/images/logo.png" width="150" height="50"/>
-        </a>
-        <ul class="right hide-on-med-and-down">
-            @if (User.Identity.IsAuthenticated)
-            {
-                <li>@Html.ActionLink("Αρχική σελίδα", "Main", "Home", new { area = "" }, null)</li>
-                <li>@Html.ActionLink("Προσθήκη Δράσης", "NewAction", "Home", new { area = "" }, null)</li>
-                <!-- <li>@Html.ActionLink("Προφίλ", "ProfileRe", "Home", new {area=""}, null)</li> -->
-                <li>@Html.ActionLink("Αποσύνδεση", "Logout", "Home", new { area = "" }, null)</li>
+    <div class="navbar-fixed">
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container">
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                <img src="~/images/logo.png" width="150" height="50" />
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>@Html.ActionLink("Αρχική σελίδα", "Main", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Προσθήκη Δράσης", "NewAction", "Home", new { area = "" }, null)</li>
+                    <!-- <li>@Html.ActionLink("Προφίλ", "ProfileRe", "Home", new {area=""}, null)</li> -->
+                    <li>@Html.ActionLink("Αποσύνδεση", "Logout", "Home", new { area = "" }, null)</li>
 
-            }
-            else
-            {
-                <li>@Html.ActionLink("Σύνδεση", "RedirectToAspx", "Home", new { area = "" }, null)</li>
-            }
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Σύνδεση", "RedirectToAspx", "Home", new { area = "" }, null)</li>
+                }
 
 
 
-        </ul>
+            </ul>
 
-        <ul id="nav-mobile" class="sidenav">
-            <li>@Html.ActionLink("Home", "RedirecttoAspx", "Home", new {area=""}, null)</li>
-        </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
-        </a>
+            <ul class="sidenav" id="mobile-demo">
+                < @if (User.Identity.IsAuthenticated)
+                  {
+                      <li>@Html.ActionLink("Αρχική σελίδα", "Main", "Home", new { area = "" }, null)</li>
+                      <li>@Html.ActionLink("Προσθήκη Δράσης", "NewAction", "Home", new { area = "" }, null)</li>
+                      <!-- <li>@Html.ActionLink("Προφίλ", "ProfileRe", "Home", new {area=""}, null)</li> -->
+                      <li>@Html.ActionLink("Αποσύνδεση", "Logout", "Home", new { area = "" }, null)</li>
+
+                  }
+                  else
+                  {
+                      <li>@Html.ActionLink("Σύνδεση", "RedirectToAspx", "Home", new { area = "" }, null)</li>
+                  }
+            </ul>
+        </div>
+    </nav>
     </div>
-</nav>
-<br/><br/>
+        <br /><br />
 <div class="container body-content">
     @RenderBody()
 
-     <footer class="page-footer">
+    <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <img src="~/images/logo.png" width="150" height="70"/>
+                    <img src="~/images/logo.png" width="150" height="70" />
                     <p class="grey-text text-lighten-4">Η εφαρμογή κατασκευάστηκε στα πλαίσια του μαθήματος, Σχεδιασμός Και ανάπτυξη εφαρμογών κινητού υπολογισμού.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
@@ -66,7 +76,7 @@
                         <li><a class="grey-text text-lighten-3" href="https://github.com/NickPtr/defibrillator">Mobile App</a></li>
                         <li><a class="grey-text text-lighten-3" href="">Documentation</a></li>
                         <li><a class="grey-text text-lighten-3" href="http://www.hrt.org.gr/">Ομάδα Ελλήνων Διασωστών</a></li>
-                        
+
                     </ul>
                 </div>
             </div>
@@ -78,8 +88,15 @@
         </div>
     </footer>
 </div>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", false)
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, options);
+    });
+
+</script>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", false)
 </body>
 </html>
