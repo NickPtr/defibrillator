@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
-using Android.Media;
+
 using defibrillator.Model;
 using Microsoft.WindowsAzure.Storage;
 using Plugin.Media;
